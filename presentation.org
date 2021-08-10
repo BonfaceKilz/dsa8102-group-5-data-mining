@@ -24,6 +24,8 @@ Not relevant for a feed that's supposed to show Scientific data!
 
 ** Scraping
 
+- Scraping happens every 10 seconds.
+
 - We use [[https://github.com/twintproject/twint][Python-twint]]
 
 - No API required. Max of about ~ 10K- 18k tweets mine-able!
@@ -56,6 +58,10 @@ Not relevant for a feed that's supposed to show Scientific data!
 * Future Work
 
 - Use a robust text-classifying model(see BioSentVec)
+
+- Find a way to score tweets so that the most relevant data is
+  displayed. Atm, only filtered out tweets are displayed. The list can
+  get long!
 
 - Fetch data from other social media platforms: Slack, IRC, Matrix,
   Fedi-verse, etc etc
