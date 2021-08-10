@@ -19,19 +19,57 @@ some feed.
 
 ## How does this work?
 
-TODO
+See presentation.org for details.
 
 ## How do I set things up?
 
-TODO
+1. Prepare your system. You need to make you have python > 3.8, and
+   the ability to install modules.
+2. Create and enter your virtualenv:
 
-## Running in a python environment
+```bash
+virtualenv --python python3 venv
+. venv/bin/activate
+```
+3. Install the required packages
 
-TODO
+```bash
+# The --ignore-installed flag forces packages to
+# get installed in the venv even if they existed 
+# in the global env
+pip install -r requirements.txt --ignore-installed
+```
 
-## Running in a GNU Guix container
 
-TODO
+#### Running the flask app
+
+To spin up the server:
+
+```bash
+env FLASK_DEBUG=1 FLASK_APP="run_server.py" flask run --port=8080
+```
+
+#### Running the redis daemon
+
+This daemon is responsible for writing the tweets to REDIS. Make sure
+you have a running REDIS instance!
+
+```bash
+python -m redis_worker
+
+```
+
+#### A note on dependencies
+
+Make sure that the dependencies in the `requirements.txt` file match those in
+guix. To freeze dependencies:
+
+```bash
+# Consistent way to ensure you don't capture globally
+# installed packages
+pip freeze --path venv/lib/python3.8/site-packages > requirements.txt
+
+```
 
 ## Future Work
 
