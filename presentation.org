@@ -1,0 +1,63 @@
+#+TITLE: Profanity and Political check in Twitter for website feeds
+#+AUTHOR: Jeremy Gachanja, Bonface M. K.
+
+* Introduction
+
+- Social Media is distracting.
+
+- Use cases where social media is useful:
+  - Dashboard of major conferences/ workshops (FOSDEM)
+  - Hackathons
+  - As part of a website
+
+- Is there a way to filter content to remove non-relevant
+  content(politics/ profane sentiments)?
+
+Example Politic content:
+- Trump won the elections
+
+Not relevant for a feed that's supposed to show Scientific data!
+
+* How does this project work?
+- Pipelines: Cleaning the data(pre-processing), storage, later
+  retrieval
+
+** Scraping
+
+- We use [[https://github.com/twintproject/twint][Python-twint]]
+
+- No API required. Max of about ~ 10K- 18k tweets mine-able!
+
+- Open-source
+
+** Pre-processing and filtering
+
+- Remove stop-words
+- Lemmatize-- Reduce words to core meaning .e.g. Thieves -> Thief
+  (important for following step)
+- Check for profanity and political sentiments. We use [[https://github.com/snguyenthanh/better_profanity][better_profanity]]
+
+** Storage
+
+- Store data to REDIS using a daemon.
+
+  Why Redis?
+
+- Features for expiring data
+- Light weight and open-source
+- Easy to set-up
+- Reduced code boiler-plate
+
+** Display
+
+- Data is displayed in a browser(demo)
+- Same data could be displayed as part of another feed!
+
+* Future Work
+
+- Use a robust text-classifying model(see BioSentVec)
+
+- Fetch data from other social media platforms: Slack, IRC, Matrix,
+  Fedi-verse, etc etc
+
+- Aggregate data from code repositories
