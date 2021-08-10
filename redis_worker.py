@@ -45,7 +45,7 @@ if __name__ == "__main__":
                     for tweet_id, content in _tweet.items():
                         pipe.hmset(tweet_id, content)
                     pipe.execute()
-                    redis_conn.bgsave()
+                redis_conn.bgsave()
                 redis_conn.expire(f"tweets:{tweet.id_}",
                                   timedelta(days=2))
         print("Done storing tweets!")
