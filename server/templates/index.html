@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Feed Tweets</title>
+
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+        <style type="text/css">
+         * {
+             box-sizing: border-box;
+         }
+
+         h1 {
+             font-size: 2rem;
+             text-align: left;
+             font-weight: 500;
+             margin: 0;
+         }
+         body {
+             font-family: sans-serif;
+             background: #eee;
+             overflow-x: scroll;
+         }
+         .row {
+             width: max-content;
+         }
+         .row:after {
+             content: "";
+             display: table;
+             clear: both
+         }
+         .button {
+             background: transparent;
+             border: 2px solid #0099CC;
+             border-radius: 6px;
+             color: #0099CC;
+             width: auto;
+             margin: 5px;
+             padding: 10px;
+         }
+
+         .button:hover, .selected {
+             background: #008CBA;
+             color: white;
+         }
+         .select-by, .order-by {
+             display: flex;
+             flex-wrap: wrap;
+             flex-direction: row;
+             justify-content: flex-start;
+         }
+         .column {
+             float: left;
+             width: 66vw;
+             padding: 0;
+             margin-left: auto;
+             margin-right: auto;
+             word-wrap: anywhere;
+         }
+         .tweet a, .tweet a:visited {
+             color: #24292e;
+             text-decoration: none;
+             font-weight: bold;
+         }
+         .author {
+             font-size: 14px;
+         }
+         .timeposted {
+             font-size: 12px;
+         }
+         .tweet {
+             padding: 7px;
+             line-height: 1.1;
+         }
+         .tweet-stats, .tweet-stats small {
+             display: flex;
+         }
+
+         .tweet-stats {
+             flex-direction: row;
+         }
+         .tweet-stats small {
+             flex-direction: column;
+             max-width: 5em;
+             margin: 10px 10px 0 0;
+         }
+         .tweets li {
+             display: flex;
+             flex-direction: row;
+             align-items: center;
+             background: #fff;
+             margin: 0.5rem;
+             padding-left: 10px;
+             border-radius: 10px;
+             height: auto;
+             work-break: break-word;
+         }
+         .wrap {
+             display: flex;
+             flex-direction: column;
+             margin: 0;
+             text-align:center;
+         }
+         .inactive{
+             color:gray;
+         }
+         .badge{
+             background: #eee;
+             padding:5px 10px;
+             border-radius: 30px;
+             position: absolute;
+             top:0;
+             margin-left:10px;
+         }
+         .notice {
+             padding: 1.5em;
+             border: solid 1px black;
+             margin: 20px;
+             font-style: italic;
+         }
+         @media screen and (max-width: 600px) {
+             .column {
+                 width: 100%;
+             }
+         }
+        </style>
+    </head>
+    <body>
+
+        <section class="notice">
+            Notice: this is a simple demo for the DSA8102 assignment!
+        </section>
+        <section class="row">
+            <div class="tweets column">
+                <h1>Tweets</h1>
+                <ul id="tweets">
+                    {% for tweet in tweets %}
+                    <li data-hash="{{ tweet.get('id') }}">
+                        <div class="tweet"><a href="{{tweet.get('link')}}" target="_blank">{{ tweet.get('tweet') }}</a><br/>
+                            <b class="author">{{ tweet.get('user_name') }}</b> <br/>
+                            <b class="timeposted"><i>{{ tweet.get('date')}}</i></b><br/>
+                            <div class="tweet-stats">
+                                <small>
+                                    <i class="fa fa-reply" aria-hidden="true"></i>{{ tweet.get('replies') }}
+                                </small>
+                                <small>
+                                    <i class="fa fa-retweet" aria-hidden="true"></i> {{ tweet.get('retweets') }}
+                                </small>
+                                <small>
+                                    <i class="fa fa-heart" aria-hidden="true"></i> {{ tweet.get('likes') }}
+                                </small>
+                            </div>
+                        </div>
+
+                    </li>
+                        {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </body>
+</html>
