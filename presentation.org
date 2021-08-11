@@ -37,6 +37,8 @@ Not relevant for a feed that's supposed to show Scientific data!
 
 - No API required. Max of about ~ 10K- 18k tweets mine-able!
 
+- No limitations from Twitter! .e.g. 7-day old data! Or hard upper limits!
+
 - Open-source
 
 ** Pre-processing and filtering
