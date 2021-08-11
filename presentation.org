@@ -35,11 +35,15 @@ Not relevant for a feed that's supposed to show Scientific data!
 
 - We use [[https://github.com/twintproject/twint][Python-twint]]
 
-- No API required. Max of about ~ 10K- 18k tweets mine-able!
+  - Open-source
 
-- No limitations from Twitter! .e.g. 7-day old data! Or hard upper limits!
+  - No rate limitations
 
-- Open-source
+  - No API required. Scrape anonymously!
+
+  - No upper hard limits(Twitter limits to 3.2k tweets only)
+
+  - You can scrape as far back as you want. No limits on 7-day old data!
 
 ** Pre-processing and filtering
 
