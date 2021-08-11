@@ -18,7 +18,7 @@ Example Politic content:
 
 Not relevant for a feed that's supposed to show Scientific data!
 
-(Ambitious) AIM: Present a WIP demo of the idea!
+(Ambitious) AIM: Present a WIP demo of the idea! And re-usable
 
 * How does this project work?
 
@@ -45,7 +45,40 @@ Not relevant for a feed that's supposed to show Scientific data!
 - Lemmatize-- Reduce words to core meaning .e.g. Thieves -> Thief
   (important for following step)
 - Check for profanity and political sentiments. We use [[https://github.com/snguyenthanh/better_profanity][better_profanity]]
-
+**** How it tied together
+Chain of abstraction!
+#+begin_src python
+        # Get tweets(using twint)
+        tweets = [get_tweets(user_name=user,
+                             search_term=SEARCH_TERMS,
+                             limit=5) for user in USERS.split(",")]
+        
+        for tweet in chain(*tweets):
+            # Pre-process the tweet before checking for filter words!
+            if ((not redis_conn.exists(f"tweets:{tweet.id_}")) and
+                is_viewable_tweet(
+                    lemmatize(remove_stopwords(tweet.tweet)))):
+                _tweet = {
+                    f"tweet:{tweet.id_}": {
+                        "id": tweet.id_,
+                        "tweet": tweet.tweet,
+                        "user_name": tweet.user_name,
+                        "date": tweet.date_,
+                        "likes": tweet.likes,
+                        "link": tweet.link,
+                        "replies": tweet.replies,
+                        "retweets": tweet.retweets}}
+                # Actual Storage!
+                with redis_conn.pipeline() as pipe:
+                    for tweet_id, content in _tweet.items():
+                        pipe.hmset(tweet_id, content)
+                    pipe.execute()
+                redis_conn.bgsave()
+                redis_conn.expire(f"tweets:{tweet.id_}",
+                                  timedelta(days=2))
+        print("Done storing tweets!")
+        time.sleep(10000)
+#+end_src
 ** Storage
 
 - Store data to REDIS using a daemon.
@@ -75,6 +108,7 @@ Not relevant for a feed that's supposed to show Scientific data!
 
 See this [[https://github.com/BonfaceKilz/dsa8102-group-5-data-mining][link]]
 
+
 * Future Work
 
 - Use a robust text-classifying model for ranking(see BioSentVec(26
@@ -88,3 +122,8 @@ See this [[https://github.com/BonfaceKilz/dsa8102-group-5-data-mining][link]]
   Fedi-verse, etc etc
 
 - Aggregate data from code repositories
+
+- Make this a library! And package it in GUIX (and Arch-Linux if usage
+  is high)
+
+- Port idea to other languages(like Scheme)!
