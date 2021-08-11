@@ -1,5 +1,5 @@
 #+TITLE: Profanity and Political check in Twitter for website feeds (Group 5)
-#+AUTHOR: Jeremy Gachanja, Bonface M. K.
+#+AUTHOR: Rose Kwamboka, Dasiy Mboya, Juma Matundura, Jeremy Gachanja, Antoinette Mutugi, Bonface M. K.
 
 * Introduction
 
@@ -14,7 +14,7 @@
   content(politics/ profane sentiments)?
 
 Example Politic content:
-- Trump won the elections
+- Trump won/ lost the elections
 
 Not relevant for a feed that's supposed to show Scientific data!
 
@@ -55,6 +55,16 @@ Not relevant for a feed that's supposed to show Scientific data!
 
 - Data is displayed in a browser(demo)
 - Same data could be displayed as part of another feed!
+
+* Drawbacks
+
+- Some words are anonymous like "resignation". False hits.
+- How to rank tweets wrt popularity, say retweets and likes; and
+  relevance
+- Different formats of content from different spaces(like commits on
+  public repos)!
+
+
 * Code
 
 See this [[https://github.com/BonfaceKilz/dsa8102-group-5-data-mining][link]]
