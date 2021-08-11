@@ -1,5 +1,5 @@
 #+TITLE: Profanity and Political check in Twitter for website feeds (Group 5)
-#+AUTHOR: Rose Kwamboka, Dasiy Mboya, Juma Matundura, Jeremy Gachanja, Antoinette Mutugi, Bonface M. K.
+#+AUTHOR: Rose Kwamboka, Daisy Mboya, Juma Matundura, Jeremy Gachanja, Antoinette Mutugi, Bonface M. K.
 
 * Introduction
 
