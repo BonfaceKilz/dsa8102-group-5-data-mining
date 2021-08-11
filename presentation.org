@@ -1,5 +1,13 @@
 #+TITLE: Profanity and Political check in Twitter for website feeds (Group 5)
 #+AUTHOR: Rose Kwamboka, Daisy Mboya, Juma Matundura, Jeremy Gachanja, Antoinette Mutugi, Bonface M. K.
+#+LaTeX_CLASS: beamer
+#+MACRO: BEAMERMODE presentation
+#+MACRO: BEAMERTHEME Boadilla
+#+MACRO: BEAMERCOLORTHEME lily
+#+MACRO: BEAMERSUBJECT RMRF
+#+MACRO: BEAMERINSTITUTE Strathmore University
+#+OPTIONS: num:nil toc:nil ^:nil
+#+LANGUAGE:  en
 
 * Introduction
 
@@ -18,7 +26,7 @@ Example Politic content:
 
 Not relevant for a feed that's supposed to show Scientific data!
 
-(Ambitious) AIM: Present a WIP demo of the idea! And re-usable
+(Ambitious) AIM: Present a (re-usable) demo of the idea!
 
 * How does this project work?
 
@@ -51,8 +59,22 @@ Not relevant for a feed that's supposed to show Scientific data!
 - Lemmatize-- Reduce words to core meaning .e.g. Thieves -> Thief
   (important for following step)
 - Check for profanity and political sentiments. We use [[https://github.com/snguyenthanh/better_profanity][better_profanity]]
-**** How it tied together
+  e.g
+
+  #+begin_export ascii
+Trump
+Cuomo
+Politics
+Elections
+Post-elections
+ODM
+Uhuru
+Obama
+  #+end_export
+  
+**** How it's tied together
 Chain of abstraction!
+
 #+begin_src python
         # Get tweets(using twint)
         tweets = [get_tweets(user_name=user,
@@ -98,7 +120,7 @@ Chain of abstraction!
 
 ** Display
 
-- Data is displayed in a browser(demo)
+- Data is displayed in a browser([[https://feed.bonfacemunyoki.com/][demo]])
 - Same data could be displayed as part of another feed!
 
 * Drawbacks
@@ -112,7 +134,9 @@ Chain of abstraction!
 
 * Code
 
-See this [[https://github.com/BonfaceKilz/dsa8102-group-5-data-mining][link]]
+See this link:
+
+https://github.com/BonfaceKilz/dsa8102-group-5-data-mining
 
 
 * Future Work
