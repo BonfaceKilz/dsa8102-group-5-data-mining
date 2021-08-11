@@ -18,10 +18,16 @@ Example Politic content:
 
 Not relevant for a feed that's supposed to show Scientific data!
 
+(Ambitious) AIM: Present a WIP demo of the idea!
+
 * How does this project work?
 
 - Pipelines: Cleaning the data(pre-processing), storage, later
   retrieval
+
+ - 2 Parts:
+   Data retrieval-- A daemon!
+   Data Viewing-- A feed!
 
 ** Scraping
 
