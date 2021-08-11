@@ -1,4 +1,4 @@
-#+TITLE: Profanity and Political check in Twitter for website feeds
+#+TITLE: Profanity and Political check in Twitter for website feeds (Group 5)
 #+AUTHOR: Jeremy Gachanja, Bonface M. K.
 
 * Introduction
@@ -19,6 +19,7 @@ Example Politic content:
 Not relevant for a feed that's supposed to show Scientific data!
 
 * How does this project work?
+
 - Pipelines: Cleaning the data(pre-processing), storage, later
   retrieval
 
@@ -54,10 +55,14 @@ Not relevant for a feed that's supposed to show Scientific data!
 
 - Data is displayed in a browser(demo)
 - Same data could be displayed as part of another feed!
+* Code
+
+See this [[https://github.com/BonfaceKilz/dsa8102-group-5-data-mining][link]]
 
 * Future Work
 
-- Use a robust text-classifying model(see BioSentVec)
+- Use a robust text-classifying model for ranking(see BioSentVec(26
+  GB!))
 
 - Find a way to score tweets so that the most relevant data is
   displayed. Atm, only filtered out tweets are displayed. The list can
