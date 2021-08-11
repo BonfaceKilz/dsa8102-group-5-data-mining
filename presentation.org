@@ -111,7 +111,7 @@ See this [[https://github.com/BonfaceKilz/dsa8102-group-5-data-mining][link]]
 
 * Future Work
 
-- Use a robust text-classifying model for ranking(see BioSentVec(26
+- Use a robust text-classifying model for ranking(see [[https://github.com/ncbi-nlp/BioSentVec#biosentvec][BioSentVec]](26
   GB!))
 
 - Find a way to score tweets so that the most relevant data is
